@@ -16,7 +16,7 @@ npm start
 
 The application will be available at the following link: <http://localhost:3000>
 
-### NOTE: MongoDB server must running on 27017-port. To change this, see config.json on the project root.
+### NOTE: MongoDB server must running and be available on 27017-port. To change this, see config.json on the project root.
 
 ### Tech
 I use a number of open source projects to work properly, such as:
