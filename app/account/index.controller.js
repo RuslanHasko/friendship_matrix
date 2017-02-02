@@ -23,7 +23,7 @@
     }
 
     function saveUser() {
-      UserService.Update(vm.user)
+      UserService.Update(vm.user._id)
         .then(function () {
           FlashService.Success('User updated');
           vm.editUser = !vm.editUser;
