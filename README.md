@@ -1,15 +1,15 @@
 # "Friendshp Matrix" REST-full MEAN-stack application
 
-This is test MEAN-stack SPA-application, which allow to register/login users, add/remove and find friends.
+This is a test MEAN-stack SPA-application, which allow to register/login users, add/remove and find friends.
 
 ### Installation and running
 
-To install this application, go to the root of the project directory, and type in console:
+To install this application, go to the project root directory, and type in console (terminal):
 ```
 npm install
 ```
 
-To run this application, type in console
+To run this application, type in console (terminal):
 ```
 npm start
 ```
