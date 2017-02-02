@@ -1,6 +1,6 @@
 # "Friendshp Matrix" REST-full MEAN-stack application
 
-"Friendshp Matrix" This is test MEAN-stack SPA-application, which allow to register/login users, add/remove and find friends.
+This is test MEAN-stack SPA-application, which allow to register/login users, add/remove and find friends.
 
 ### Installation and running
 
@@ -14,7 +14,7 @@ To run this application, type in console
 npm start
 ```
 
-The application will be available at the following link: http://localhost:3000
+The application will be available at the following link: <http://localhost:3000>
 
 ### NOTE: MongoDB server must running on 27017-port. To change this, see config.json on the project root.
 
