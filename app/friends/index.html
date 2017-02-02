@@ -1,0 +1,14 @@
+<h1>Friends</h1>
+<p>Manage your friends</p>
+<ul class="all-users">
+  <li ng-repeat="user in vm.users">
+    <div class="well">
+      <p>{{ user.firstName }}</p>
+      <p>{{ user.lastName }}</p>
+      <p>{{ user.userName }}</p>
+      <!--<p>{{ user.hash }}</p>-->
+      <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+      <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
+    </div>
+  </li>
+</ul>

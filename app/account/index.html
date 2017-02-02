@@ -1,0 +1,30 @@
+<h1>My Account</h1>
+<div class="form-container">
+  <form method="post">
+    <div class="form-group">
+      <label for="firstName">First name</label>
+      <p ng-if="!vm.editUser">{{ vm.user.firstName }}</p>
+      <input ng-if="vm.editUser" type="text" id="firstName" class="form-control" ng-model="vm.user.firstName" required />
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last name</label>
+      <p ng-if="!vm.editUser">{{ vm.user.lastName }}</p>
+      <input ng-if="vm.editUser" type="text" id="lastName" class="form-control" ng-model="vm.user.lastName" required />
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <p ng-if="!vm.editUser">{{ vm.user.userName }}</p>
+      <input ng-if="vm.editUser" type="text" id="username" class="form-control" ng-model="vm.user.userName" required />
+    </div>
+    <div ng-if="vm.editUser" class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" class="form-control" ng-model="vm.user.password" />
+    </div>
+    <div class="form-group">
+      <button ng-if="!vm.editUser" class="btn btn-primary" ng-click="vm.editUser = !vm.ediruser">Edit user</button>
+      <button ng-if="vm.editUser" class="btn btn-primary" ng-click="vm.saveUser()">Save</button>
+      <button ng-if="vm.editUser" class="btn btn-info" ng-click="vm.editUser = !vm.editUser">Cancel</button>
+      <button ng-if="vm.editUser" class="btn btn-danger delete-user" ng-click="vm.deleteUser()">Delete</button>
+    </div>
+  </form>
+</div>
