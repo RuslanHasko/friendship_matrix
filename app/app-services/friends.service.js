@@ -10,15 +10,20 @@
 
     service.addToFriends = addToFriends;
     service.removeFromFriends = removeFromFriends;
+    service.getAllUserFriends = getAllUserFriends;
 
     return service;
 
-    function addToFriends(user) {
-      return $http.put('/api/friends/add' + user._id, user).then(handleSuccess, handleError);
+    function addToFriends(request) {
+      return $http.put('/api/friends/add', request).then(handleSuccess, handleError);
     }
 
-    function removeFromFriends(user) {
-      return $http.delete('/api/friends/remove' + user._id, user).then(handleSuccess, handleError);
+    function removeFromFriends(request) {
+      return $http.put('/api/friends/remove', request).then(handleSuccess, handleError);
+    }
+
+    function getAllUserFriends(_id) {
+      return $http.get('/api/friends/all/' + _id).then(handleSuccess, handleError);
     }
 
     // private functions

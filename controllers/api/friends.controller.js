@@ -1,12 +1,14 @@
 var libs          =   process.cwd() + '/libs/';
 var config        =   require(libs + 'config');
+var log = require(libs + 'log')(module);
 var express       =   require('express');
 var router        =   express.Router();
-var userService   =   require('services/user.service');
+var friendsService   =   require('services/friends.service');
 
 // routes
-router.post('/add',  addToFriends);
-router.post('/remove',      removeFromFriends);
+router.put('/add',        addToFriends);
+router.put('/remove',     removeFromFriends);
+router.get('/all/:_id',   getAllUserFriends);
 
 module.exports = router;
 
@@ -18,14 +20,8 @@ module.exports = router;
 //----------------- ADD USER TO FRIENDS ----------------------
 //------------------------------------------------------------
 
-function addToFriends(req, res) {
-  var userId = req.user.sub;
-  if (req.params._id !== userId) {
-    // can only delete own account
-    return res.status(401).send('You can only delete your own account');
-  }
-
-  userService.addToFriends(userId)
+function addToFriends(req, res) {  
+  friendsService.addToFriends(req.body.currentUser, req.body.addingUser)
     .then(function () {
       res.sendStatus(200);
     })
@@ -39,15 +35,27 @@ function addToFriends(req, res) {
 //------------------------------------------------------------
 
 function removeFromFriends(req, res) {
-  var userId = req.user.sub;
-  if (req.params._id !== userId) {
-    // can only delete own account
-    return res.status(401).send('You can only delete your own account');
-  }
-
-  userService.removeFromFriends(userId)
+  friendsService.removeFromFriends(req.body.currentUser, req.body.removingUser)
     .then(function () {
       res.sendStatus(200);
+    })
+    .catch(function (err) {
+      res.status(400).send(err);
+    });
+}
+
+//------------------------------------------------------------
+//------------------ GET USER FRIEND LIST --------------------
+//------------------------------------------------------------
+
+function getAllUserFriends(req, res) {
+  friendsService.getAllUserFriends(req.user.sub)
+    .then(function (allFriendsList) {
+      if (allFriendsList) {
+        res.send(allFriendsList);
+      } else {
+        res.sendStatus(404);
+      }
     })
     .catch(function (err) {
       res.status(400).send(err);

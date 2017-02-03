@@ -1,14 +1,14 @@
 <h1>Friends</h1>
 <p>Manage your friends</p>
 <ul class="all-users">
-  <li ng-repeat="user in vm.users">
+  <li ng-repeat="user in vm.users" ng-hide="user.userName == vm.user.userName">
     <div class="well">
-      <p>{{ user.firstName }}</p>
-      <p>{{ user.lastName }}</p>
-      <p>{{ user.userName }}</p>
+      <p><strong>First Name: </strong>{{ user.firstName }}</p>
+      <p><strong>Last Name: </strong>{{ user.lastName }}</p>
+      <p><strong>UserName: </strong>{{ user.userName }}</p>
       <!--<p>{{ user.hash }}</p>-->
-      <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
-      <button class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
+      <button ng-if="!user.isFriend" class="btn btn-success" ng-click="vm.addToFriends(user)">Add friend <span class="glyphicon glyphicon-plus"></span></button>
+      <button ng-if="user.isFriend" class="btn btn-danger" ng-click="vm.removeFromFriends(user)">Remove friend <span class="glyphicon glyphicon-minus"></span></button>
     </div>
   </li>
 </ul>

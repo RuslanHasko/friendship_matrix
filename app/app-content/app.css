@@ -2,6 +2,10 @@ body {
   padding: 20px 0;
 }
 
+header {
+  position: relative;
+}
+
 .flash-message {
   margin-top: 20px;
 }
@@ -23,13 +27,13 @@ ul.all-users li {
   padding: 0 10px;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 991px) {
   ul.all-users li {
     width: 50%;
   }
 }
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 530px) {
   ul.all-users li {
     width: 100%;
   }
@@ -37,4 +41,19 @@ ul.all-users li {
 
 .delete-user {
   float: right;
+}
+
+.btn {
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+.btn span {
+  margin-left: 10px;
+}
+
+.flash-message {
+  position: absolute;
+  right: 0;
+  opacity: .9;
 }
