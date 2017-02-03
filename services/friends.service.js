@@ -102,13 +102,11 @@ function removeFromFriends(currentUser, removingUser) {
   function remove(userCur, userDel) {
     for (var i = 0; i < userCur.friends.length; i++) {
       if (userCur.friends[i].userName == userDel.userName) {
-        log.info("Friend removed! 1");
         userCur.friends.splice(i, 1);
       }
     }
     for (var i = 0; i < userDel.friends.length; i++) {
       if (userDel.friends[i].userName == userCur.userName) {
-        log.info("Friend removed! 2");
         userDel.friends.splice(i, 1);
       }
     }
