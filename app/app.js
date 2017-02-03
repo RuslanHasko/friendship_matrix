@@ -6,7 +6,7 @@
     .config(config)
     .run(run);
 
-  function config($stateProvider, $urlRouterProvider) {
+  function config($stateProvider, $urlRouterProvider, $locationProvider) {
     // default route
     $urlRouterProvider.otherwise("/");
 
@@ -48,11 +48,16 @@
         }
       });
 
-    // use the HTML5 History API
-    // $locationProvider.html5Mode(true);
+    if (window.history && window.history.pushState) {
+      $locationProvider.html5Mode({
+        enabled: true
+      });
+    }
+
   };
 
-  function run($http, $rootScope, $window) {
+  function run($http, $rootScope, $window, $browser) {
+    $browser.baseHref = function () { return "/" };
     // add JWT token as default auth header
     $http.defaults.headers.common['Authorization'] = 'Bearer ' + $window.jwtToken;
 
