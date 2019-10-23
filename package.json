@@ -20,7 +20,7 @@
     "jsonwebtoken": "^5.0.2",
     "lodash": "^3.10.0",
     "method-override": "^2.3.7",
-    "mongoose": "^4.8.0",
+    "mongoose": "^5.7.6",
     "morgan": "^1.7.0",
     "nconf": "^0.8.4",
     "q": "^1.4.1",
